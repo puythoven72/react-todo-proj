@@ -1,6 +1,6 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { markAsComplete, markAsSelected,deleteSelectedItem } from '../store/features/todo/todoSlice';
+import { markAsComplete, markAsSelected, deleteSelectedItem } from '../store/features/todo/todoSlice';
 import { markAsUnselected } from '../store/features/todo/todoSlice';
 import completed from '../images/completed.png';
 import notcomplete from '../images/not-complete.png';
@@ -32,27 +32,38 @@ function ToDo({ todo }) {
     }
 
     function markAsCompleted() {
-        dispatch( markAsComplete(todo.taskId));
+        dispatch(markAsComplete(todo.taskId));
 
     }
     function deleteItem() {
-        dispatch( deleteSelectedItem(todo.taskId));
+        dispatch(deleteSelectedItem(todo.taskId));
 
     }
 
-    
+
 
 
     return (
-        <div>
+       
 
-            {/* <li>{todo.task} and {todo.completed ? "Complete" : <span>&#10003;</span>}</li> */}
-            <input value={todo.taskId} type="checkbox" name={todo.taskId} onClick={addToSelected} checked={todo.selected} />
+          
+            <tr >
+            <td> <input value={todo.taskId} type="checkbox" name={todo.taskId} onClick={addToSelected} checked={todo.selected} /></td>
+            
 
-            <span>{todo.task} {todo.completed ? <img src={completed} alt = "task Completed"/> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete"/>}</span>
+         
+              <td> {todo.task} </td>
+          
 
-            <span><img src={deleteItemIcon}  onClick={deleteItem} alt = "Delete Task"/></span>
-        </div>
+           
+               <td> <span>{todo.completed ? <img src={completed} alt="task Completed" /> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete" />}</span></td>
+           
+
+           
+                <td><span><img src={deleteItemIcon} onClick={deleteItem} alt="Delete Task" /></span></td>
+
+            </tr>
+        
 
 
     )

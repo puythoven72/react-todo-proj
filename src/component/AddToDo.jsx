@@ -16,7 +16,7 @@ function AddToDo() {
         if (toDo) {
 
 
-            
+
             dispatch(addToDo(toDo));
 
 
@@ -25,16 +25,26 @@ function AddToDo() {
 
 
     return (
+       
         <div>
 
 
-            <form onSubmit={addToDos}>
-                <input name="todoinput"></input><button type="submit">Add</button>
-
-
+            <form onSubmit={addToDos} className=" row">
+                <div className=" col-md-11 col-sm-1" >
+                    <input name="todoinput" className="form-control todoinput " type="text" placeholder="Add Task" aria-label="Add Task"></input>
+                </div>
+                <div className="col col-md-1 " >
+                    <button type="submit" className="btn btn-secondary ">Add</button>
+                </div>
 
             </form>
+
         </div>
+
+
+
+
+
 
     )
 }
