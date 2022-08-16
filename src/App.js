@@ -1,12 +1,23 @@
-
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
+import ToDoList from './component/ToDoList';
+import AddToDo from './component/AddToDo';
+
+
 
 function App() {
+
+
+ 
+  
   return (
     <div className="App">
-      <header className="App-header">
-       <h1>TEMPLATE</h1>
-      </header>
+     
+          <AddToDo/>
+          <ToDoList/>
+
+       
     </div>
   );
 }
