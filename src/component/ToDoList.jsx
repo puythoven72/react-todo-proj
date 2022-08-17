@@ -2,8 +2,8 @@
 import ToDo from "./ToDo";
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { markSelectAsComplete } from '../store/features/todo/todoSlice';
-import { markAsComplete, deleteSelectedItems } from '../store/features/todo/todoSlice';
+import { markSelectAsComplete,deleteSelectedItems } from '../store/features/todo/todoSlice';
+
 
 
 function ToDoList() {
@@ -53,26 +53,25 @@ function ToDoList() {
 
     };
 
-    function displayAll() {
+    function filterTasks(event) {
+        let taskFilter = event.target.value;
+        switch (taskFilter) {
+            case 'all':
+                setDisplay("all");
+                break;
+
+            case 'completed':
+                setDisplay("completed");
+                break;
+
+            case 'not-completed':
+                setDisplay("not-completed");
+                break;
+            default:
+                setDisplay("all");
+        }
 
     };
-    function displayCompleted() {
-        setDisplay("completed");
-    };
-
-    function displayNotCompleted() {
-        setDisplay("not-completed");
-    };
-
-    function displayAll() {
-        setDisplay("all");
-    };
-
-
-
-
-
-
 
     return (
 
@@ -83,9 +82,16 @@ function ToDoList() {
         <div className="table-responsive todo-List">
 
             <div className="row  w-49 mx-auto">
-                <button className="btn btn-primary" onClick={displayCompleted}>Display Completed</button>
-                <button className="btn btn-primary" onClick={displayNotCompleted}>Display Not Completed</button>
-                <button className="btn btn-primary" onClick={displayAll}>DisplayAll</button>
+
+                <div className="col-12">
+                    <label for="display">Filter Tasks: &nbsp;</label>
+                    <select name="display" id="display" onChange={filterTasks}>
+                        <option value="completed">Display Completed</option>
+                        <option value="not-completed">Display Not Completed</option>
+                        <option value="all" selected>Display All</option>
+
+                    </select>
+                </div>
             </div>
 
             <table className="table table-striped  table-bordered">
@@ -102,36 +108,34 @@ function ToDoList() {
 
                 <tbody>
                     {
-
                         todoList.map(function (todo, index) {
                             return (
                                 <ToDo todo={todo} />
                             );
-
                         })
-
                     }
                 </tbody>
             </table>
 
 
 
+            {todoList.length > 0 ?
+                <div className="row text-right ">
+                    <div className="col-10  ">
+                        <button className="btn btn-success text-right" onClick={markSelectedAsComplete}>Mark As Complete</button>
 
-            <div className="row  w-49 mx-auto">
-                <div className="col-6">
-                    <button className="btn btn-primary" onClick={markSelectedAsComplete}>Mark Selected As Complete</button>
+
+                    </div>
+                    <div className="col">
+
+                        <button className="btn btn-danger" onClick={deleteSelected}>Delete</button>
+
+                    </div>
+
 
 
                 </div>
-                <div className="col-6 ">
-
-                    <button className="btn btn-primary" onClick={deleteSelected}>Delete Selected</button>
-
-                </div>
-
-
-
-            </div>
+                : null}
 
             {/* <div>
                 <button className="btn btn-primary" onClick={displayCompleted}>Display Completed</button>
