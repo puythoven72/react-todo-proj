@@ -44,28 +44,17 @@ function ToDo({ todo }) {
 
 
     return (
-       
-
-          
             <tr >
             <td> <input value={todo.taskId} type="checkbox" name={todo.taskId} onClick={addToSelected} checked={todo.selected} /></td>
             
-
-         
               <td> {todo.task} </td>
-          
 
-           
                <td> <span>{todo.completed ? <img src={completed} alt="task Completed" /> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete" />}</span></td>
-           
-
            
                 <td><span><img src={deleteItemIcon} onClick={deleteItem} alt="Delete Task" /></span></td>
 
             </tr>
-        
-
-
+  
     )
 
 

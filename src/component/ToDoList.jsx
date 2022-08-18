@@ -2,45 +2,48 @@
 import ToDo from "./ToDo";
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { markSelectAsComplete,deleteSelectedItems } from '../store/features/todo/todoSlice';
+import { markSelectAsComplete, deleteSelectedItems } from '../store/features/todo/todoSlice';
+import { searchValue } from '../store/features/search/searchToDosSlice';
 
 
 
 function ToDoList() {
     let [selectedList, setSelectedList] = useState([]);
 
+
     let [display, setDisplay] = useState("all");
 
+    const dispatch = useDispatch();
+
+
+
     const todoList = useSelector(function (state) {
+        if (state.searchToDos.searchVal) {
+            let searchVal = state.searchToDos.searchVal.toLowerCase();
+            return (state.todos.filter(todo => todo.task.toLowerCase().startsWith(searchVal)));
 
-        switch (display) {
-            case 'all':
-                return state.todos;
-                break;
+        } else {
+            switch (display) {
+                case 'all':
+                    return state.todos;
 
-            case 'completed':
-                return (state.todos.filter(todo => todo.completed));
-                break;
+                case 'completed':
+                    return (state.todos.filter(todo => todo.completed));
 
-            case 'not-completed':
-                return (state.todos.filter(todo => !todo.completed));
-                break;
-            default:
-                console.log(`No Todos.`);
+                case 'not-completed':
+                    return (state.todos.filter(todo => !todo.completed));
+
+                default:
+                    return state.todos;
+            }
         }
 
-    })
+
+    });
 
 
 
 
-
-
-
-
-
-
-    const dispatch = useDispatch();
 
     function markSelectedAsComplete() {
         dispatch(markSelectAsComplete());
@@ -79,12 +82,12 @@ function ToDoList() {
 
 
 
-        <div className="table-responsive todo-List">
+        <div className="table-responsive todo-List h-100">
 
             <div className="row  w-49 mx-auto">
 
                 <div className="col-12">
-                    <label for="display">Filter Tasks: &nbsp;</label>
+                    <label htmlFor="display">Filter Tasks: &nbsp;</label>
                     <select name="display" id="display" onChange={filterTasks}>
                         <option value="completed">Display Completed</option>
                         <option value="not-completed">Display Not Completed</option>

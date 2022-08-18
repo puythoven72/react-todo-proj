@@ -68,10 +68,6 @@ const todoSlice = createSlice(
             },
 
 
-        //    returnAllCompleted: function (state) {
-        //         return (state.filter(todo => todo.completed));        
-        //       },
-
 
         },
 

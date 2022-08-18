@@ -1,7 +1,4 @@
-form{
 
-  width: 100%;
-}
 
 .todo-List{
 padding: 10px 150px 10px 40px;
@@ -21,4 +18,12 @@ padding: 10px 150px 10px 40px;
   width: 100%;
 }
 
+.contact-form{
+margin: 5% 0 10% 0;
 
+}
+
+.form-input{
+
+  padding: 5px 0 5px 0;
+}
