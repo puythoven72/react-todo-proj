@@ -14,7 +14,7 @@ function ToDo({ todo }) {
         let selectedToDoId = event.target.value;
 
         if (selectedToDoId) {
-            let checkBox = document.querySelector('[name=' + selectedToDoId + ']')
+            let checkBox = document.querySelector('[name=' + selectedToDoId + ']');
             if (checkBox.checked) {
                 dispatch(markAsSelected(selectedToDoId));
 
@@ -24,10 +24,6 @@ function ToDo({ todo }) {
             }
 
         };
-
-
-
-
 
     }
 
@@ -49,7 +45,7 @@ function ToDo({ todo }) {
             
               <td> {todo.task} </td>
 
-               <td> <span>{todo.completed ? <img src={completed} alt="task Completed" /> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete" />}</span></td>
+               <td> <span>{todo.completed ? <img src={completed} alt="task Completed" /> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete"/>}</span></td>
            
                 <td><span><img src={deleteItemIcon} onClick={deleteItem} alt="Delete Task" /></span></td>
 

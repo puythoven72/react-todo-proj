@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,14 +12,6 @@ function Navigation() {
     const dispatch = useDispatch();
 
 
-    const todoList = useSelector(function (state) {
-
-        return state.todos;
-
-    })
-
-
-
     function searchToDos(event) {
         event.preventDefault();
         let toDoSearch = event.target.value;
@@ -30,7 +22,10 @@ function Navigation() {
     return (
 
         <div className="container">
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <nav className="navbar navbar-expand-md navbar-light nav-color fixed-top">
+
+
+    
                 <span className="navbar-brand"> Redux Task List</span>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +55,7 @@ function Navigation() {
                         </li>
                     </ul>
                     <form className="form-inline my-2 my-lg-0" onSubmit={searchToDos}>
-                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name='searchTask' onChange={searchToDos} on />
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search Tasks" aria-label="Search" name='searchTask' onChange={searchToDos} on />
                         {/* <button className="btn btn-secondary my-2 my-sm-0" type="submit" >Search</button> */}
                     </form>
                 </div>

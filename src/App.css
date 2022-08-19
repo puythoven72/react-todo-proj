@@ -1,29 +1,123 @@
-
-
-.todo-List{
-padding: 10px 150px 10px 40px;
-
-
-
+.nav-color {
+  background-color: #b8daff;
+  ;
 }
 
-.todo{
+
+
+.filter-section {
+  margin-bottom: 10px;
+}
+
+
+
+.todo-List {
+  margin-top: 40px;
+  padding: 40px 150px 10px 40px; 
+  border: #b8daff 1px solid;
+}
+
+
+.todo {
 
   padding-bottom: 10px;
 }
 
 
-.selected-buttons{
-
-  width: 100%;
+.update-buttons {
+  padding: 0 30% 0 30%;
 }
 
-.contact-form{
-margin: 5% 0 10% 0;
+
+
+.contact-form {
+  margin: 5% 0 10% 0;
 
 }
 
-.form-input{
+.form-input {
 
   padding: 5px 0 5px 0;
 }
+
+
+@media only screen and (max-width: 768px) {
+
+  .input-group {
+    width: 100%;
+    font-size: small;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+  }
+
+  .todoinput {
+    margin: 10px 0 10px 0;
+    display: block;
+    width: 100%;
+  }
+
+
+  .table-wrapper {
+    max-height: 400px;
+    overflow: auto;
+    display: inline-block;
+  }
+
+  .task-table {
+    width: 100%;
+
+    font-size: small;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+
+  }
+
+  .todo-List {
+    margin-top: 5px;
+    padding: 5px 0px 5px 0px;
+    border: #b8daff 1px solid;
+  }
+
+
+
+
+  .task-col {
+    min-width: 100%;
+  }
+
+  .update-buttons {
+    padding: 0 0 0 0;
+    width: 100%;
+
+    position: fixed;
+    bottom: 0;
+  }
+
+  
+
+}
+
+ @media only screen and (max-width: 500px) {
+
+  .update-button {
+    display: block;
+    width: 100%;
+    margin: 5px 0 5px 10px;
+
+  }
+
+  /* .todo-List {
+    margin-top: 40px;
+    padding: 20px 0px 10px 0px;
+    border: #b8daff 1px solid;
+  }
+
+  .task-table {
+    width: 100%;
+    font-size: small;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  } */
+
+} 

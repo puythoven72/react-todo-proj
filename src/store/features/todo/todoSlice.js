@@ -38,8 +38,6 @@ const todoSlice = createSlice(
 
             deleteSelectedItem: function (state,action) {
                 let taskId = action.payload;
-
-
                 return (state = state.filter(todo =>  todo.taskId !== taskId));        
               },
 
@@ -56,27 +54,38 @@ const todoSlice = createSlice(
                 let taskId = action.payload;
                 const todo = state.find((todo) => todo.taskId === taskId);
                 todo.selected = true;
-
-
             },
             markAsUnselected: function (state, action) {
                 let taskId = action.payload;
                 const todo = state.find((todo) => todo.taskId === taskId);
                 todo.selected = false;
+            },
 
+            markAsSelected: function (state, action) {
+                let taskId = action.payload;
+                const todo = state.find((todo) => todo.taskId === taskId);
+                todo.selected = true;
+            },
+
+            markAllAsSelected:  function(state){
+                state.map(function(todo){
+                    todo.selected = true;
+
+                })
 
             },
 
+            markAllAsUnSelected:  function(state){
+                state.map(function(todo){
+                    todo.selected = false;
 
+                })
+            },
 
-        },
-
-
-
+        }
 
     }
 
-
 );
-export let { addToDo,markSelectAsComplete ,markAsSelected,markAsComplete,markAsUnselected,deleteSelectedItems,deleteSelectedItem} = todoSlice.actions;
+export let { addToDo,markSelectAsComplete ,markAsSelected,markAsComplete,markAsUnselected,deleteSelectedItems,deleteSelectedItem,markAllAsSelected,markAllAsUnSelected} = todoSlice.actions;
 export default todoSlice;
