@@ -14,7 +14,6 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
       <main role="main" className ="container">
         <AddToDo />
         <ToDoList />

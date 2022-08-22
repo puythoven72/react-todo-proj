@@ -4,7 +4,7 @@ import { markAsComplete, markAsSelected, deleteSelectedItem } from '../store/fea
 import { markAsUnselected } from '../store/features/todo/todoSlice';
 import completed from '../images/completed.png';
 import notcomplete from '../images/not-complete.png';
-import deleteItemIcon from '../images/delete.png';
+import mkDelete from '../images/markDelete.png';
 
 function ToDo({ todo }) {
 
@@ -19,10 +19,8 @@ function ToDo({ todo }) {
                 dispatch(markAsSelected(selectedToDoId));
 
             } else {
-
                 dispatch(markAsUnselected(selectedToDoId));
             }
-
         };
 
     }
@@ -43,11 +41,14 @@ function ToDo({ todo }) {
             <tr >
             <td> <input value={todo.taskId} type="checkbox" name={todo.taskId} onClick={addToSelected} checked={todo.selected} /></td>
             
-              <td> {todo.task} </td>
+              <td className='text-font' > {todo.task} </td>
 
-               <td> <span>{todo.completed ? <img src={completed} alt="task Completed" /> : <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete"/>}</span></td>
+               <td > <span>{todo.completed ? 
+               <img src={completed} alt="task Completed" /> : 
+               <img src={notcomplete} onClick={markAsCompleted} alt="Task Not Complete"/>}</span>
+               </td>
            
-                <td><span><img src={deleteItemIcon} onClick={deleteItem} alt="Delete Task" /></span></td>
+                <td><span><img src={mkDelete} onClick={deleteItem} alt="Delete Task" /></span></td>
 
             </tr>
   

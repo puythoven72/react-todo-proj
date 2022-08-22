@@ -14,13 +14,13 @@ import Navigation from './component/Navigation';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-   
+
       <Router>
-      <Navigation />
+        <Navigation />
         <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </Provider>

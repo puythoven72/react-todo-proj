@@ -22,11 +22,11 @@ function Navigation() {
     return (
 
         <div className="container">
-            <nav className="navbar navbar-expand-md navbar-light nav-color fixed-top">
-
+             <nav className="navbar navbar-expand-md navbar-light nav-color fixed-top"> 
+            {/* <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"> */}
 
     
-                <span className="navbar-brand"> Redux Task List</span>
+                <span className="navbar-brand title-font"> Redux Task List</span>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -34,25 +34,15 @@ function Navigation() {
 
                 <div className="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            {/* <a className="nav-link" href="#">Tasks <span className="sr-only">(current)</span></a> */}
+                    <li className="nav-item title-font">
+
                             <NavLink to="/" className="nav-link">Tasks</NavLink>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item title-font">
 
-                            <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                            <NavLink to="/contact" className="nav-link">Comments</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div className="dropdown-menu" aria-labelledby="dropdown01">
-                                <a className="dropdown-item" href="#">Action</a>
-                                <a className="dropdown-item" href="#">Another action</a>
-                                <a className="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
+                        
                     </ul>
                     <form className="form-inline my-2 my-lg-0" onSubmit={searchToDos}>
                         <input className="form-control mr-sm-2" type="text" placeholder="Search Tasks" aria-label="Search" name='searchTask' onChange={searchToDos} on />

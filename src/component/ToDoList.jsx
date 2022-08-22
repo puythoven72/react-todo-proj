@@ -2,7 +2,7 @@
 import ToDo from "./ToDo";
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { markSelectAsComplete, deleteSelectedItems, markAllAsSelected,markAllAsUnSelected } from '../store/features/todo/todoSlice';
+import { markSelectAsComplete, deleteSelectedItems, markAllAsSelected, markAllAsUnSelected } from '../store/features/todo/todoSlice';
 
 
 
@@ -37,35 +37,35 @@ function ToDoList() {
     });
 
     function handleAllSelect() {
-        
+
         let markAllCheckBox = document.querySelector('[name = select-all]');
-        
-        if(markAllCheckBox.checked){
+
+        if (markAllCheckBox.checked) {
             dispatch(markAllAsSelected());
 
-        }else{
+        } else {
 
             dispatch(markAllAsUnSelected());
         }
 
 
-        
+
     };
 
 
 
     function markSelectedAsComplete() {
         dispatch(markSelectAsComplete());
-       
+
         let markAllCheckBox = document.querySelector('[name = select-all]');
-        markAllCheckBox.checked =false;
+        markAllCheckBox.checked = false;
     };
 
 
     function deleteSelected() {
         dispatch(deleteSelectedItems());
         let markAllCheckBox = document.querySelector('[name = select-all]');
-        markAllCheckBox.checked =false;
+        markAllCheckBox.checked = false;
 
     };
 
@@ -95,40 +95,40 @@ function ToDoList() {
             <div className="row  w-49 mx-auto filter-section">
 
                 <div className="col-12">
-                    <label htmlFor="display"><h5>Filter Tasks: &nbsp;</h5></label>
-                    <select name="display" id="display" onChange={filterTasks}>
+                    <label htmlFor="display" className="title-font"><h5>Filter Tasks: &nbsp;</h5></label>
+                    <select name="display" id="display" className="text-font" onChange={filterTasks} defaultValue ="all">
                         <option value="completed">Display Completed</option>
                         <option value="not-completed">Display Not Completed</option>
-                        <option value="all" selected>Display All</option>
+                        <option value="all" >Display All</option>
 
                     </select>
                 </div>
             </div>
- <div className="  table-wrapper"> 
-            <table className="table table-striped  table-bordered task-table">
+            <div className="table-wrapper">
+                <table className="table table-striped  table-bordered task-table">
 
-                <thead>
-                    <tr className="table-primary">
-                        <th scope="col-1" className="col-1"><input type="checkbox" name="select-all" onClick={handleAllSelect} /></th>
-                        <th scope="col-9" className="col-9 ">Task</th>
-                        <th scope="col-1" className=" col-1" >Complete</th>
-                        <th scope="col-1"  className=" col-1">Delete</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr className="table-primary title-font">
+                            <th scope="col-1" className="col-1"><input type="checkbox" name="select-all" onClick={handleAllSelect} /></th>
+                            <th scope="col-9" className="col-9 ">Task</th>
+                            <th scope="col-1" className=" col-1" >Complete</th>
+                            <th scope="col-1" className=" col-1">Delete</th>
+                        </tr>
+                    </thead>
 
 
-                <tbody>
-                    {
-                        todoList.map(function (todo, index) {
-                            return (
-                                <ToDo todo={todo} />
-                            );
-                        })
-                    }
-                </tbody>
-            </table>
+                    <tbody>
+                        {
+                            todoList.map(function (todo, index) {
+                                return (
+                                    <ToDo todo={todo} key={todo.taskId}/>
+                                );
+                            })
+                        }
+                    </tbody>
+                </table>
 
-             </div> 
+            </div>
 
             {todoList.length > 0 ?
                 <div className="row text-center update-buttons">
