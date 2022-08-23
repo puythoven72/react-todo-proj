@@ -1,7 +1,7 @@
 
 .nav-color {
   background-color: #b8daff;
-  ;
+  
 }
 
 .title-font{
@@ -23,7 +23,7 @@
 }
 
 
-.table-wrapper{
+.task-table{
   border-radius: 10px;
 }
 
@@ -40,8 +40,13 @@
 }
 
 
+
+
+
+
 .contact-form {
   margin: 5% 0 10% 0;
+
 
 }
 
@@ -96,38 +101,23 @@
   }
 
   .update-buttons {
-    padding: 0 0 0 0;
-    width: 100%;
+     padding: 0 0 0 0; 
+    width: 90%;
 
-    position: fixed;
+    position: fixed; 
     bottom: 0;
   }
 
-  .update-button {
+
+   .update-button {
     display: block;
     width: 100%;
-    margin: 5px 0 5px 0px;
+    margin: 5px 0 5px 0;  
 
-  }
+  } 
+
+
   
 
 }
 
- @media only screen and (max-width: 500px) {
-
-  
-
-  /* .todo-List {
-    margin-top: 40px;
-    padding: 20px 0px 10px 0px;
-    border: #b8daff 1px solid;
-  }
-
-  .task-table {
-    width: 100%;
-    font-size: small;
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-  } */
-
-} 

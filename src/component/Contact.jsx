@@ -39,7 +39,7 @@ function Contact() {
             const inputs = document.querySelectorAll('#firstName, #lastName, #email,#comments');
 
             inputs.forEach(input => {
-              input.value = '';
+                input.value = '';
             });
 
         }
@@ -78,13 +78,10 @@ function Contact() {
             message.style.display = "none";
         }
 
-
     }
 
     return (
         <div className="container">
-
-
 
             <div className="alert alert-success alert-dismissible   align-items-center fade show" id="alert-success">
                 <i className="bi-check-circle-fill"></i>
@@ -109,14 +106,14 @@ function Contact() {
                 </div>
             </div>
 
-            
+
             <div className="row w-50 mx-auto title-font">
                 <div col-md-12 col-sm-1>
                     <h4>We want to hear from you!</h4>
                 </div>
             </div>
 
-            <div >
+            <div className="todo-List" >
 
                 <form className="contact-form needs-validation" novalidate onSubmit={submitContact} >
 
@@ -136,7 +133,7 @@ function Contact() {
                     </div>
 
                     <div className="form-group form-input">
-                        <input type="email" className="form-control" name="email"  id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                        <input type="email" className="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
                         <div className="valid-feedback">Valid.</div>
                         <div className="invalid-feedback">Please fill out this field.</div>
                         <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>

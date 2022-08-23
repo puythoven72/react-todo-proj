@@ -47,9 +47,6 @@ function ToDoList() {
 
             dispatch(markAllAsUnSelected());
         }
-
-
-
     };
 
 
@@ -131,23 +128,20 @@ function ToDoList() {
             </div>
 
             {todoList.length > 0 ?
-                <div className="row text-center update-buttons">
+                
+                <div className="row update-buttons">
                     <div className="col-md-6 col-sm-1">
                         <button className="btn btn-success update-button " onClick={markSelectedAsComplete}>Complete</button>
-
                     </div>
                     <div className="col-md-6 col-sm-1">
-
                         <button className="btn btn-danger update-button" onClick={deleteSelected}>Delete</button>
-
                     </div>
                 </div>
+               
                 : null}
 
-        </div>
-
+        </div>  
     )
-
 }
 
 

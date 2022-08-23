@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Contact from './component/Contact';
-import About from './component/About';
 import Navigation from './component/Navigation';
 
 
@@ -19,7 +18,6 @@ ReactDOM.render(
         <Navigation />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
